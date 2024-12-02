@@ -1,0 +1,11 @@
+<div id="articles">
+  <% articles.each do |article| %>
+    <li>
+      <strong><%= article[:title] %></strong><br> |
+      <a><%= article[:content] %></a> |
+      <% article[:links].each_with_index do |link, i| %>
+        <a href=<%= link[:href] %> data-method=<%= link[:action]%>><%= link[:name]%></a> <%= '|' if i != article[:links].size-1%>
+      <% end %>
+    </li>
+  <% end %>
+</div>

@@ -70,6 +70,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     bigdecimal (3.1.8)
     bindex (0.8.1)
+    blueprinter (1.1.2)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
     builder (3.3.0)
@@ -87,6 +88,8 @@ GEM
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
@@ -233,10 +236,12 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  blueprinter
   bootsnap
   byebug
   debug
   factory_bot_rails
+  faker
   importmap-rails
   jbuilder
   puma (~> 5.0)
