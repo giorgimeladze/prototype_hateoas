@@ -5,13 +5,13 @@ class ArticleBlueprint < Blueprinter::Base
 
   view :show do
     field :links do |article, _options|
-      ArticleLinks.show(article)
+      article.show_links
     end
   end
 
   view :index do
     field :links do |article, _options|
-      ArticleLinks.index(article)
+      article.index_links
     end
   end
 end

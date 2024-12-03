@@ -2,8 +2,6 @@
   <h2><%= article[:title] %></h2>
   <p><%= article[:content] %></p>
   <p>
-    <% article[:links].each_with_index do |link, i| %>
-        <a href=<%= link[:href] %> data-method=<%= link[:action]%>><%= link[:name]%></a> <%= '|' if i != article[:links].size-1%>
-    <% end %>
+    <%= render_links(article[:links]) %>
   </p>
 </div>

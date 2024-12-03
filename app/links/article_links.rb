@@ -1,36 +1,56 @@
-class ArticleLinks
+module ArticleLinks
 
-  def self.show(article)
+  def show_links
     [
       {
         name: 'Edit',
-        action: 'get',
-        href: "/articles/#{article.id}/edit"
+        action: 'GET',
+        href: "/articles/#{self.id}/edit"
       },
       {
         name: 'Back to Listings',
-        action: 'get',
+        action: 'GET',
         href: "/articles"
       }
     ]
   end
 
-  def self.index(article)
+  def new_links
+    [
+      {
+        name: 'Back to Listings',
+        action: 'GET',
+        href: "/articles"
+      }
+    ]
+  end
+
+  def edit_links
+    [
+      {
+        name: 'Back to Article',
+        action: 'GET',
+        href: "/articles/#{self.id}/edit"
+      }
+    ]
+  end
+
+  def index_links
     [
       {
         name: 'Show',
-        action: 'get',
-        href: "/articles/#{article.id}"
+        action: 'GET',
+        href: "/articles/#{self.id}"
       },
       {
         name: 'Edit',
-        action: 'get',
-        href: "/articles/#{article.id}/edit"
+        action: 'GET',
+        href: "/articles/#{self.id}/edit"
       },
       {
         name: 'Delete',
-        action: 'delete',
-        href: "/articles/#{article.id}"
+        action: 'DELETE',
+        href: "/articles/#{self.id}"
       }
     ]
   end
@@ -39,7 +59,7 @@ class ArticleLinks
     [      
       {
         name: 'New',
-        action: 'get',
+        action: 'GET',
         href: '/articles/new'
       }
     ]

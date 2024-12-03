@@ -7,6 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Article.create([
-  { title: 'First Article', content: 'Content of the first article.' },
-  { title: 'Second Article', content: 'Content of the second article.' }
+  { title: 'First Article', content: 'Content of the first article.', author_id: 1 },
+  { title: 'Second Article', content: 'Content of the second article.', author_id: 1 }
 ])
