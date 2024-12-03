@@ -49,6 +49,9 @@ gem "bootsnap", require: false
 
 gem 'blueprinter'
 
+gem 'bootstrap', '~> 5.3.2'
+gem 'sassc-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
