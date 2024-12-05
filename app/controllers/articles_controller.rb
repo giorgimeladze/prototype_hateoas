@@ -7,9 +7,9 @@ class ArticlesController < ApplicationController
   def index
     articles = Article.all
 
-    rendered_articles = ArticleBlueprint.render_as_hash(articles, view: :index)
+    rendered_articles = ArticleBlueprint.render_as_hash(articles, view: :index, context: { current_user: current_user })
     @html_content = render_to_string(partial: 'list', locals: { articles: rendered_articles })
-    @links = ArticleLinks.general_index
+    @links = ArticleLinks.general_index(current_user)
 
     respond_to do |format|
       format.html { render :index }
@@ -31,6 +31,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    authorize @article
     @html_content = render_to_string(partial: 'form', locals: { article: @article })
     respond_to do |format|
       format.html { render :new }
@@ -41,6 +42,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   def create
     @article = Article.new(article_params)
+    authorize @article
 
     if @article.save
       respond_to do |format|
@@ -57,6 +59,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/:id/edit
   def edit
+    authorize @article
     @html_content = render_to_string(partial: 'form', locals: { article: @article })
     respond_to do |format|
       format.html { render :edit }
@@ -66,6 +69,7 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/:id
   def update
+    authorize @article
     if @article.update(article_params)
       respond_to do |format|
         format.html { redirect_to article_path(@article), notice: 'Article was successfully updated.' }
@@ -81,6 +85,7 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/:id
   def destroy
+    authorize @article
     @article.destroy
     respond_to do |format|
       format.html { redirect_to articles_path, notice: 'Article was successfully deleted.' }

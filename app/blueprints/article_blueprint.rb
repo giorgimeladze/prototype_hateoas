@@ -11,7 +11,8 @@ class ArticleBlueprint < Blueprinter::Base
 
   view :index do
     field :links do |article, _options|
-      article.index_links
+      current_user = _options[:context][:current_user]
+      article.index_links(current_user)
     end
   end
 end
